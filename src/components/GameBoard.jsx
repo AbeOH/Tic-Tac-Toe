@@ -4,7 +4,7 @@ const initialGameBoard = [
     [null, null, null],
 ];
 
-export default function GameBoard({ OnSelectSquare, turns }) {
+export default function GameBoard({ onSelectSquare, turns }) {
     let gameBoard = initialGameBoard;
 
     for (const turn of turns) {
@@ -35,8 +35,9 @@ export default function GameBoard({ OnSelectSquare, turns }) {
                             <li key={colIndex}>
                                 <button
                                     onClick={() =>
-                                        OnSelectSquare(rowIndex, colIndex)
+                                        onSelectSquare(rowIndex, colIndex)
                                     }
+                                    disabled={playerSymbol !== null}
                                 >
                                     {playerSymbol}
                                 </button>
